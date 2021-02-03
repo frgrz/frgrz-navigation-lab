@@ -11,20 +11,21 @@ import dagger.Provides
 import dagger.multibindings.IntoMap
 
 @Module
-class MainActivityModule{
-@Provides
-@IntoMap
-@ViewModelKey(MainActivityViewModel::class)
-fun provideMainActivityViewModelFactory(): ViewModel =
-    MainActivityViewModel()
+class MainActivityModule {
 
-@ActivityScope
-@Provides
-fun provideMainActivityViewModel(
-    activity: MainActivity,
-    factory: ViewModelProvider.Factory
-): MainActivityViewModel =
-    ViewModelProvider(activity, factory)
-        .get(MainActivityViewModel::class.java)
+    @Provides
+    @IntoMap
+    @ViewModelKey(MainActivityViewModel::class)
+    fun provideMainActivityViewModelFactory(): ViewModel =
+        MainActivityViewModel()
+
+    @ActivityScope
+    @Provides
+    fun provideMainActivityViewModel(
+        activity: MainActivity,
+        factory: ViewModelProvider.Factory
+    ): MainActivityViewModel =
+        ViewModelProvider(activity, factory)
+            .get(MainActivityViewModel::class.java)
 
 }
