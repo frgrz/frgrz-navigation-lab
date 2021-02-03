@@ -1,5 +1,7 @@
 package com.frgrz.navigation.features.main.inject
 
+import com.frgrz.navigation.features.details.DetailsFragment
+import com.frgrz.navigation.features.details.DetailsFragmentModule
 import com.frgrz.navigation.features.home.HomeFragment
 import com.frgrz.navigation.features.home.HomeFragmentModule
 import com.frgrz.navigation.features.list.ListFragment
@@ -18,5 +20,9 @@ abstract class MainActivityFragmentBuilderModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [ListFragmentModule::class])
     abstract fun bindListFragment(): ListFragment
-    
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [DetailsFragmentModule::class])
+    abstract fun bindDetailsFragment(): DetailsFragment
+
 }
