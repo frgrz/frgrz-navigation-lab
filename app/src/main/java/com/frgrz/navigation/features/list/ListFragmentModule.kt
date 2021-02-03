@@ -12,10 +12,15 @@ import dagger.multibindings.IntoMap
 class ListFragmentModule {
 
     @Provides
+    fun provideRepository(): ListFragmentFakeRepository = ListFragmentFakeRepository()
+
+    @Provides
     @IntoMap
     @ViewModelKey(ListFragmentViewModel::class)
-    fun provideViewModelFactory(): ViewModel =
-        ListFragmentViewModel()
+    fun provideViewModelFactory(
+        repository: ListFragmentFakeRepository
+    ): ViewModel =
+        ListFragmentViewModel(repository)
 
     @Provides
     @FragmentScope

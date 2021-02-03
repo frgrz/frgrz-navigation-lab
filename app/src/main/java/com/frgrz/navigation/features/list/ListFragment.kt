@@ -29,6 +29,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = ListFragmentBinding.inflate(inflater, null, false)
+        binding.listRecyclerView.adapter = ListItemAdapter()
         binding.viewModel = viewModel.get()
         return binding.root
     }
