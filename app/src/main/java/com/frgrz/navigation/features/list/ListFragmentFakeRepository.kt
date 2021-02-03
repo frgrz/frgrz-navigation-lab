@@ -1,16 +1,12 @@
 package com.frgrz.navigation.features.list
 
-class ListFragmentFakeRepository {
+import com.frgrz.navigation.datasource.FruitsFakeDataSource
+class ListFragmentFakeRepository(
+    private val dataSource: FruitsFakeDataSource
+) {
 
-    private val fakeDataSet = listOf(
-        ListItemData(0, "Banana"),
-        ListItemData(1, "Kiwi"),
-        ListItemData(2, "Mango"),
-        ListItemData(3, "Apple"),
-        ListItemData(4, "Peach")
-    )
-
-    fun getItems(navigation: ListFragmentNavigation): List<ListItemViewModel> {
-        return fakeDataSet.map { ListItemViewModel(it, navigation) }
+    fun getItemViewModels(navigation: ListFragmentNavigation): List<ListItemViewModel> {
+        return dataSource.getItems().map { ListItemViewModel(it, navigation) }
     }
+
 }

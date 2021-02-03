@@ -3,6 +3,7 @@ package com.frgrz.navigation.features.main.inject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.frgrz.navigation.R
+import com.frgrz.navigation.datasource.FruitsFakeDataSource
 import com.frgrz.navigation.features.main.MainActivity
 import com.frgrz.navigation.features.main.MainActivityRouter
 import com.frgrz.navigation.features.main.MainActivityViewModel
@@ -23,6 +24,10 @@ class MainActivityModule {
             R.id.homeFragment,
             R.id.main_nav_host
         )
+
+    @ActivityScope
+    @Provides
+    fun provideFakeDataSource(): FruitsFakeDataSource = FruitsFakeDataSource()
 
     @Provides
     @IntoMap

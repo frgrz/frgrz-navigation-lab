@@ -7,6 +7,6 @@ class ListFragmentViewModel(
     navigation: ListFragmentNavigation
 ) : ViewModel() {
 
-    val items = repository.getItems(navigation)
+    val items = repository.getItemViewModels(navigation)
 
 }

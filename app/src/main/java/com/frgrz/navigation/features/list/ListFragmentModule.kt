@@ -2,6 +2,7 @@ package com.frgrz.navigation.features.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.frgrz.navigation.datasource.FruitsFakeDataSource
 import com.frgrz.navigation.features.main.MainActivityRouter
 import com.frgrz.navigation.inject.annotation.FragmentScope
 import com.frgrz.navigation.inject.annotation.ViewModelKey
@@ -13,7 +14,10 @@ import dagger.multibindings.IntoMap
 class ListFragmentModule {
 
     @Provides
-    fun provideRepository(): ListFragmentFakeRepository = ListFragmentFakeRepository()
+    fun provideRepository(
+        dataSource: FruitsFakeDataSource
+    ): ListFragmentFakeRepository =
+        ListFragmentFakeRepository(dataSource)
 
     @Provides
     @IntoMap

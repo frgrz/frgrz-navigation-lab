@@ -35,6 +35,12 @@
         android:id="@+id/detailsFragment"
         android:name="com.frgrz.navigation.features.details.DetailsFragment"
         android:label="DetailsFragment"
-        tools:layout="@layout/details_fragment" />
+        tools:layout="@layout/details_fragment">
+        <argument
+            android:name="detailsId"
+            android:defaultValue="0"
+            app:argType="integer"
+            app:nullable="false" />
+    </fragment>
 
 </navigation>

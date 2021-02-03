@@ -2,6 +2,7 @@ package com.frgrz.navigation.features.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.frgrz.navigation.datasource.FruitsFakeDataSource
 import com.frgrz.navigation.inject.annotation.FragmentScope
 import com.frgrz.navigation.inject.annotation.ViewModelKey
 import dagger.Module
@@ -12,10 +13,18 @@ import dagger.multibindings.IntoMap
 class DetailsFragmentModule {
 
     @Provides
+    fun provideRepository(
+        dataSource: FruitsFakeDataSource
+    ): DetailsFragmentFakeRepository =
+        DetailsFragmentFakeRepository(dataSource)
+
+    @Provides
     @IntoMap
     @ViewModelKey(DetailsFragmentViewModel::class)
-    fun provideViewModelFactory(): ViewModel =
-        DetailsFragmentViewModel()
+    fun provideViewModelFactory(
+        repository: DetailsFragmentFakeRepository
+    ): ViewModel =
+        DetailsFragmentViewModel(repository)
 
     @Provides
     @FragmentScope
