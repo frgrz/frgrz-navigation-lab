@@ -1,6 +1,10 @@
 package com.frgrz.navigation
 
 import android.app.Application
+import com.frgrz.navigation.inject.AppComponent
+import com.frgrz.navigation.inject.DaggerAppComponent
+import dagger.android.*
+import javax.inject.Inject
 
 class NavigationApp: Application(), HasAndroidInjector {
 
