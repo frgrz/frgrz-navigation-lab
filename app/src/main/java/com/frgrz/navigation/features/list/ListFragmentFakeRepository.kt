@@ -10,7 +10,7 @@ class ListFragmentFakeRepository {
         ListItemData(4, "Peach")
     )
 
-    fun getItems(): List<ListItemViewModel> {
-        return fakeDataSet.map { ListItemViewModel(it) }
+    fun getItems(navigation: ListFragmentNavigation): List<ListItemViewModel> {
+        return fakeDataSet.map { ListItemViewModel(it, navigation) }
     }
 }

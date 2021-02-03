@@ -3,9 +3,10 @@ package com.frgrz.navigation.features.list
 import androidx.lifecycle.ViewModel
 
 class ListFragmentViewModel(
-    repository: ListFragmentFakeRepository
+    repository: ListFragmentFakeRepository,
+    navigation: ListFragmentNavigation
 ) : ViewModel() {
 
-    val items = repository.getItems()
+    val items = repository.getItems(navigation)
 
 }

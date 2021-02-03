@@ -19,6 +19,22 @@
         android:id="@+id/listFragment"
         android:name="com.frgrz.navigation.features.list.ListFragment"
         android:label="ListFragment"
-        tools:layout="@layout/list_fragment"/>
+        tools:layout="@layout/list_fragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment">
+            <argument
+                android:name="detailsId"
+                android:defaultValue="0"
+                app:argType="integer"
+                app:nullable="false" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.frgrz.navigation.features.details.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/details_fragment" />
 
 </navigation>

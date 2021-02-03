@@ -2,6 +2,7 @@ package com.frgrz.navigation.features.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.frgrz.navigation.features.main.MainActivityRouter
 import com.frgrz.navigation.inject.annotation.FragmentScope
 import com.frgrz.navigation.inject.annotation.ViewModelKey
 import dagger.Module
@@ -18,9 +19,10 @@ class ListFragmentModule {
     @IntoMap
     @ViewModelKey(ListFragmentViewModel::class)
     fun provideViewModelFactory(
-        repository: ListFragmentFakeRepository
+        repository: ListFragmentFakeRepository,
+        router: MainActivityRouter
     ): ViewModel =
-        ListFragmentViewModel(repository)
+        ListFragmentViewModel(repository, router)
 
     @Provides
     @FragmentScope
