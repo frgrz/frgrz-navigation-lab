@@ -10,6 +10,7 @@ class NavigationApp: Application(), HasAndroidInjector {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     override fun onCreate() {
